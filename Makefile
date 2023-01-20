@@ -29,6 +29,6 @@ append-to-release-please:
 	jq '.packages += {"${MODULE_TYPE}/${MODULE_NAME}": {"release-type":"go","package-name":"${MODULE_TYPE}/${MODULE_NAME}","bump-minor-pre-major":true,"bump-patch-for-minor-pre-major":true,"versioning":"default","extra-files": []}}' release-please-config.json > tmp.json
 	mv tmp.json release-please-config.json
 
-sbom-generate:
+generate-sbom:
 	go install github.com/CycloneDX/cyclonedx-gomod/cmd/cyclonedx-gomod@latest
 	$(foreach module, $(ALL_GO_MOD_DIRS), cyclonedx-gomod mod -licenses -type library -json -output $(module)/bom.json $(module);)
