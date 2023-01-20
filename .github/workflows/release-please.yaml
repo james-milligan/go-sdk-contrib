@@ -18,7 +18,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
       - name: generate sbom
-        run: make sbom-generate
+        run: make generate-sbom
       - uses: google-github-actions/release-please-action@v3
         id: release
         with:
