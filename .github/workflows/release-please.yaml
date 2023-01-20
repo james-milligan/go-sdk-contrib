@@ -11,12 +11,6 @@ jobs:
   release-please:
     runs-on: ubuntu-latest
     steps:
-      - name: Install Go
-        uses: actions/setup-go@v3
-        with:
-          go-version: ${{ env.DEFAULT_GO_VERSION }}
-      - name: generate sbom
-        run: make generate-sbom
       - uses: google-github-actions/release-please-action@v3
         id: release
         with:
